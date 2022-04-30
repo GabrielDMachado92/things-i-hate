@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, ListGroup, Badge } from "react-bootstrap";
+import { Container, ListGroup, Badge, Alert } from "react-bootstrap";
 
-const ListItem = () => {
+const ListItem = ({ listItems }) => {
   return (
     <Container>
       <ListGroup as="ol" numbered>
@@ -9,10 +9,7 @@ const ListItem = () => {
           as="li"
           className="d-flex justify-content-between align-items-start"
         >
-          <div className="ms-2 me-auto">
-            <div className="fw-bold">Subheading</div>
-            Cras justo odio
-          </div>
+          <div className="ms-2 me-auto">Cras justo odio</div>
           <Badge bg="primary" pill>
             14
           </Badge>

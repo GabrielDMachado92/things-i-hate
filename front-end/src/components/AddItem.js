@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 
-const AddItem = () => {
+const AddItem = ({ handleSubmit, item, setItem }) => {
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col>
             <Form.Group controlId="formItem">
               <Form.Control
                 type="text"
                 placeholder="What do you hate the most today?"
+                value={item}
+                onChange={(e) => setItem(e.target.value)}
               />
             </Form.Group>
           </Col>
