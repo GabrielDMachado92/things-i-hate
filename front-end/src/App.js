@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col, Alert, ListGroup } from "react-bootstrap";
 import AddItem from "./components/AddItem";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -35,17 +35,24 @@ function App() {
           </Col>
         </Row>
 
-        {listItems.length ? (
-          <Row>
-            <Col>
-              <ListItem />
-            </Col>
-          </Row>
-        ) : (
-          <Alert key="success" variant="success">
-            Congrats, you have nothing to hate.
-          </Alert>
-        )}
+        <Container className="mt-4">
+          {listItems.length ? (
+            <ListGroup>
+              {listItems.map((item, i) => (
+                <ListGroup.Item
+                  as="li"
+                  className="d-flex justify-content-between align-items-start"
+                >
+                  <ListItem item={item} />
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          ) : (
+            <Alert key="success" variant="success">
+              Congrats, you have nothing to hate.
+            </Alert>
+          )}
+        </Container>
       </Container>
     </div>
   );
