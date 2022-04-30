@@ -9,11 +9,19 @@ function App() {
   const [listItems, setListItems] = useState([]);
   const [item, setItem] = useState("");
 
+  const API_URL = "http://127.0.0.1:5030";
+
   const handleAddSubmit = (e) => {
     e.preventDefault();
     console.log(item);
-    setListItems([...listItems, item]);
-    console.log(listItems);
+    fetch(`${API_URL}/word?word=${item}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setListItems([...listItems, item]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setItem("");
   };
 
@@ -42,6 +50,7 @@ function App() {
                 <ListGroup.Item
                   as="li"
                   className="d-flex justify-content-between align-items-start"
+                  key={i}
                 >
                   <ListItem item={item} />
                 </ListGroup.Item>
