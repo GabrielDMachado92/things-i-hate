@@ -4,6 +4,7 @@ import AddItem from "./components/AddItem";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ListItem from "./components/ListItem";
+import Footer from "./components/Footer";
 
 function App() {
   const [listItems, setListItems] = useState([]);
@@ -69,6 +70,7 @@ function App() {
             </Alert>
           )}
         </Container>
+        <Footer />
       </Container>
     </div>
   );
