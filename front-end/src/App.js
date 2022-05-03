@@ -13,8 +13,15 @@ function App() {
 
   const handleAddSubmit = (e) => {
     e.preventDefault();
+    const requestOptions = {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(item),
+    };
+
     console.log(item);
-    fetch(`${API_URL}/word?word=${item}`)
+    fetch(`${API_URL}/word`, requestOptions)
       .then((res) => res.json())
       .then((data) => {
         setListItems([...listItems, item]);
